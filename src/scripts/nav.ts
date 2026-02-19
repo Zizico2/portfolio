@@ -1,4 +1,4 @@
-export function setupNav() {
+export function setupNav(): (() => void) | undefined {
   const navButton = document.querySelector('.navbar-icon-button');
   const navMenu = document.querySelector('.w-nav-menu');
 
