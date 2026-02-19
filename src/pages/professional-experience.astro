@@ -1,0 +1,113 @@
+---
+import Header from "../components/Header.astro";
+import Project from "../components/Project.astro";
+import Sidebar from "../components/Sidebar.astro";
+
+// #entry(
+//   title: "DevOps Engineer",
+//   date: "01/2022 04/2022",
+//   institution: "Collab (Multivision consultant)",
+//   location: "Lisbon/Hybrid",
+// )[
+// ]
+
+// #entry(
+//   title: "Senior Software Engineer",
+//   date: "05/2024 06/2025",
+//   institution: "ClimateSeed (HN Services consultant)",
+//   location: "Lisbon/Remote",
+// )[
+//   - I worked on a backend codebase, that was being migrated from Ruby on Rails to Rust.
+//   - I worked, briefly, on a Vue frontend.
+//   - I developed the major features for the backend, and big technical changes (switching http framework, as an example). I also contributed to PR reviews and mentored colleagues who were less proficient in Rust and were less aware of the crate ecosystem.
+// ]
+
+const projects = [
+   {
+    title: "DevOps Engineer @ Collab",
+    startDate:  new Date("2022/01/01"),
+    endDate: new Date("2022/04/30"),
+    desc: [],
+    tech: ["GitHub Actions", "C#", "Docker", "Kubernetes"],
+  },
+  {
+    title: "Senior Software Engineer @ Linde",
+    startDate: new Date("2022/11/01"),
+    endDate: new Date("2024/05/31"),
+    desc: [
+      "Led the development of a computer vision pipeline, improving processing speed by 40x and enabling on-prem inference, utilizing Rust, Python, PostgreSQL, gRPC, and GraphQL",
+      "Collaborated closely with Data Scientists to transition their work from experimental code to deployable PoCs and maintainable production code",
+      "Introduced best practices to the team, including type hints, reliance on Rye, and ensuring all PoCs were self-sufficient Docker images for company-wide testing",
+      "Provided technical expertise to stakeholders and implemented PoCs for various internal projects",
+    ],
+    tech: [
+      "Rust",
+      "Python",
+      "PostgreSQL",
+      "gRPC",
+      "GraphQL",
+      "Docker",
+      "Rye",
+      "CI/CD",
+      "Microservices",
+      "Azure",
+    ],
+  },
+  {
+    title: "Senior Software Engineer @ ClimateSeed",
+    startDate: new Date("2024/06/01"),
+    endDate: new Date("2025/06/30"),
+    desc: [
+      "Worked on a backend codebase, that was being migrated from Ruby on Rails to Rust",
+      "Worked, briefly, on the Vue frontend",
+      "Developed the major features for the backend, and big technical changes (switching http framework, as an example).",
+      "Contributed to PR reviews and mentored colleagues who were less proficient in Rust and were less aware of the crate ecosystem.",
+    ],
+    tech: ["Rust", "Vue.js", "PostgreSQL", "Docker", "CI/CD", "GCP"],
+  },
+];
+---
+
+<!doctype html>
+<html>
+  <Header title="Professional Experience | Bernardo Borda d'Água" />
+  <body>
+    <div class="content">
+      <Sidebar selectedItem="professional-experience" />
+      <nav class="main">
+        <div class="container">
+          <div class="back-nav-container">
+            <a href="/" class="back-nav-button w-inline-block"
+              ><img
+                src="/assets/back.svg"
+                loading="lazy"
+                alt=""
+                class="back-nav-img"
+              />
+              <div>Back</div></a
+            >
+          </div>
+          <div class="content-container">
+            <h1>Professional Experience</h1>
+            <section class="items-container">
+              <div class="resouce-items">
+                {
+                  projects.map((project) => (
+                    <Project
+                      title={project.title}
+                      desc={project.desc}
+                      tech={project.tech}
+                      period={{ startDate: project.startDate, endDate: project.endDate }}
+                    />
+                  ))
+                }
+              </div>
+            </section>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+  </body>
+</html>

@@ -1,16 +1,41 @@
 ---
-const { title, desc, tech } = Astro.props;
+import { format } from "date-fns";
+import { dateFormat } from "../scripts/constants";
+interface Props {
+  title: string;
+  desc: string[];
+  tech: string[];
+  period?: Period;
+}
+
+interface Period {
+  startDate: Date;
+  endDate?: Date;
+}
+
+const { title, desc, tech, period } = Astro.props;
+const formattedDates = period
+  ? {
+      startDate: format(period.startDate, dateFormat),
+      endDate: period.endDate ? format(period.endDate, dateFormat) : "Present",
+    }
+  : null;
 ---
 
 <div class="single-item">
   <h3>{title}</h3>
+  {
+    formattedDates && (
+      <p>{formattedDates.startDate} - {formattedDates.endDate}</p>
+    )
+  }
   <div class="project-desc project-desc-list w-richtext">
     <ul role="list">
-      {desc.map(item => <li>{item}</li>)}
+      {desc.map((item) => <li>{item}</li>)}
     </ul>
   </div>
   <div class="mini-label-white">Technologies &amp; tools</div>
   <div class="chips-container">
-    {tech.map(techItem => <div class="single-chip">{techItem}</div>)}
+    {tech.map((techItem) => <div class="single-chip">{techItem}</div>)}
   </div>
 </div>

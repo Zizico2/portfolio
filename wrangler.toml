@@ -1,0 +1,16 @@
+name = "my-astro-app"
+main = "./dist/_worker.js/index.js"
+# Set this to today's date
+compatibility_date = "2026-02-18"
+compatibility_flags = [ "nodejs_compat", "global_fetch_strictly_public" ]
+
+[assets]
+binding = "ASSETS"
+directory = "./dist"
+
+[observability]
+enabled = true
+
+[[routes]]
+pattern = "bernardobordadagua.com"
+custom_domain = true
