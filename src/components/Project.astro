@@ -1,14 +1,14 @@
 ---
 import { format } from "date-fns";
 import { dateFormat } from "../scripts/constants";
-interface Props {
+export interface Props {
   title: string;
   desc: string[];
   tech: string[];
-  period?: Period;
+  period?: Period | undefined;
 }
 
-interface Period {
+export interface Period {
   startDate: Date;
   endDate?: Date;
 }

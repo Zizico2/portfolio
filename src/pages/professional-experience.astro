@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Project from "../components/Project.astro";
+import { type Props as ProjectProps } from "../components/Project.astro";
 import Sidebar from "../components/Sidebar.astro";
 
 // #entry(
@@ -22,18 +23,22 @@ import Sidebar from "../components/Sidebar.astro";
 //   - I developed the major features for the backend, and big technical changes (switching http framework, as an example). I also contributed to PR reviews and mentored colleagues who were less proficient in Rust and were less aware of the crate ecosystem.
 // ]
 
-const projects = [
-   {
+const projects: ProjectProps[] = [
+  {
     title: "DevOps Engineer @ Collab",
-    startDate:  new Date("2022/01/01"),
-    endDate: new Date("2022/04/30"),
+    period: {
+      startDate: new Date("2022/01/01"),
+      endDate: new Date("2022/04/30"),
+    },
     desc: [],
     tech: ["GitHub Actions", "C#", "Docker", "Kubernetes"],
   },
   {
     title: "Senior Software Engineer @ Linde",
-    startDate: new Date("2022/11/01"),
-    endDate: new Date("2024/05/31"),
+    period: {
+      startDate: new Date("2022/11/01"),
+      endDate: new Date("2024/05/31"),
+    },
     desc: [
       "Led the development of a computer vision pipeline, improving processing speed by 40x and enabling on-prem inference, utilizing Rust, Python, PostgreSQL, gRPC, and GraphQL",
       "Collaborated closely with Data Scientists to transition their work from experimental code to deployable PoCs and maintainable production code",
@@ -55,8 +60,10 @@ const projects = [
   },
   {
     title: "Senior Software Engineer @ ClimateSeed",
-    startDate: new Date("2024/06/01"),
-    endDate: new Date("2025/06/30"),
+    period: {
+      startDate: new Date("2024/06/01"),
+      endDate: new Date("2025/06/30"),
+    },
     desc: [
       "Worked on a backend codebase, that was being migrated from Ruby on Rails to Rust",
       "Worked, briefly, on the Vue frontend",
@@ -97,7 +104,7 @@ const projects = [
                       title={project.title}
                       desc={project.desc}
                       tech={project.tech}
-                      period={{ startDate: project.startDate, endDate: project.endDate }}
+                      period={project.period}
                     />
                   ))
                 }
