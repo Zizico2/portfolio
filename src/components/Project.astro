@@ -6,6 +6,7 @@ export interface Props {
   desc: string[];
   tech: string[];
   period?: Period | undefined;
+  links?: Link[] | undefined;
 }
 
 export interface Period {
@@ -13,7 +14,12 @@ export interface Period {
   endDate?: Date;
 }
 
-const { title, desc, tech, period } = Astro.props;
+export interface Link {
+  text: string;
+  link: string;
+}
+
+const { title, desc, tech, period, links } = Astro.props;
 const formattedDates = period
   ? {
       startDate: format(period.startDate, dateFormat),
@@ -34,6 +40,21 @@ const formattedDates = period
       {desc.map((item) => <li>{item}</li>)}
     </ul>
   </div>
+  {
+    links && (
+      <div class="project-links-container">
+        {links.map((link) => (
+          <a
+            href={link.link}
+            target="_blank"
+            class="button w-button"
+          >
+            {link.text}
+          </a>
+        ))}
+      </div>
+    )
+  }
   <div class="mini-label-white">Technologies &amp; tools</div>
   <div class="chips-container">
     {tech.map((techItem) => <div class="single-chip">{techItem}</div>)}

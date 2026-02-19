@@ -6,19 +6,37 @@ const email = "berna.agua@protonmail.com";
 const longIntro =
   "Experienced backend developer and cloud architect. A proactive team member dedicated to continuous learning, problem-solving, and aiding teammates in achieving quicker outcomes.";
 const shortIntroLines = ["Hi, I'm Bernardo."];
-const tech = [
+const professionalExperienceTech = [
+  "Rust",
+  "Go",
+  "Python",
+  "TypeScript",
+  "Java",
+  "C#",
+  "Node.js",
   "React",
   "Next.js",
-  "Node.js",
+  "Vue.js",
+  "Nuxt",
   "MongoDB",
-  "Heroku",
-  "RabbitMQ",
-  "Express.js",
-  "TypeScript",
-  "NestJS",
-  "Angular",
   "Postgres",
-  "Linode",
+  "MySQL",
+  "Docker",
+  "Azure",
+  "GCP",
+];
+
+const personalProjectsTech = [
+  "Rust",
+  "React",
+  "Next.js",
+  "Postgres",
+  "Docker",
+  "Github Actions",
+  "Cloudflare Workers",
+  "RabbitMQ",
+  "AWS",
+  "Clerk",
 ];
 ---
 
@@ -54,6 +72,34 @@ const tech = [
             >
           </main>
           <div class="projects-section">
+            <!-- Personal Projects -->
+            <a href="/personal-projects" class="projects-container">
+              <div class="single-projects-category">
+                <div class="projects-category-image-container projects-img">
+                  <img
+                    src="./assets/database.svg"
+                    loading="lazy"
+                    alt=""
+                    class="projects-category-image"
+                  />
+                </div>
+              </div>
+              <div class="single-projects-content">
+                <h4>Personal Project</h4>
+                <div class="tech-tools-container">
+                  <div class="mini-label-white gray-color">
+                    Technologies &amp; tools
+                  </div>
+                  <div class="chips-container chips-container-small-width">
+                    {
+                      personalProjectsTech.map((techItem) => (
+                        <div class="single-chip small-chip">{techItem}</div>
+                      ))
+                    }
+                  </div>
+                </div>
+              </div>
+            </a>
             <!-- Professional Experience -->
             <a href="/professional-experience" class="projects-container">
               <div class="single-projects-category">
@@ -74,46 +120,10 @@ const tech = [
                   </div>
                   <div class="chips-container chips-container-small-width">
                     {
-                      tech.map((techItem) => (
+                      professionalExperienceTech.map((techItem) => (
                         <div class="single-chip small-chip">{techItem}</div>
                       ))
                     }
-                  </div>
-                </div>
-              </div>
-            </a>
-            <!-- Personal Projects & Cloud -->
-            <a href="/devops" class="projects-container">
-              <div class="single-projects-category">
-                <div class="projects-category-image-container devops-img">
-                  <img
-                    src="./assets/database.svg"
-                    loading="lazy"
-                    alt=""
-                    class="projects-category-image"
-                  />
-                </div>
-              </div>
-              <div class="single-projects-content">
-                <h4>Personal Projects &amp;&nbsp;Cloud</h4>
-                <div class="tech-tools-container">
-                  <div class="mini-label-white gray-color">
-                    Technologies &amp; tools
-                  </div>
-                  <div class="chips-container chips-container-small-width">
-                    <div class="single-chip small-chip">Terraform</div>
-                    <div class="single-chip small-chip">Azure</div>
-                    <div class="single-chip small-chip">AWS</div>
-                    <div class="single-chip small-chip">Docker</div>
-                    <div class="single-chip small-chip">Kubernetes</div>
-                    <div class="single-chip small-chip">GitLab CI/CD</div>
-                    <div class="single-chip small-chip">RKE</div>
-                    <div class="single-chip small-chip">Node.js</div>
-                    <div class="single-chip small-chip">RabbitMQ</div>
-                    <div class="single-chip small-chip">Linux</div>
-                    <div class="single-chip small-chip">Bash</div>
-                    <div class="single-chip small-chip">Grafana</div>
-                    <div class="single-chip small-chip">Prometheus</div>
                   </div>
                 </div>
               </div>

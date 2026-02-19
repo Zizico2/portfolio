@@ -46,6 +46,20 @@ const title = "Software Engineer";
         <div>Home</div>
       </a>
       <a
+        href="/personal-projects"
+        class={`nav-link-container w-inline-block ${
+          selectedItem === "personal-projects" ? "w--current" : ""
+        }`}
+      >
+        <img
+          src="/assets/favorite.svg"
+          loading="eager"
+          alt=""
+          class="nav-link-image"
+        />
+        <div>Personal projects</div>
+      </a>
+      <a
         href="/professional-experience"
         class={`nav-link-container w-inline-block ${
           selectedItem === "professional-experience" ? "w--current" : ""
@@ -61,34 +75,6 @@ const title = "Software Engineer";
           class="nav-link-image"
         />
         <div>Professional Experience</div>
-      </a>
-      <a
-        href="/devops"
-        class={`nav-link-container w-inline-block ${
-          selectedItem === "devops" ? "w--current" : ""
-        }`}
-      >
-        <img
-          src="/assets/dns.svg"
-          loading="eager"
-          alt=""
-          class="nav-link-image"
-        />
-        <div>DevOps</div>
-      </a>
-      <a
-        href="/personal-projects"
-        class={`nav-link-container w-inline-block ${
-          selectedItem === "personal-projects" ? "w--current" : ""
-        }`}
-      >
-        <img
-          src="/assets/favorite.svg"
-          loading="eager"
-          alt=""
-          class="nav-link-image"
-        />
-        <div>Personal projects</div>
       </a>
     </nav>
 
